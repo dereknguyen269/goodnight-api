@@ -21,8 +21,6 @@ module V1::ExceptionsHandler
           [500, e.message]
         end
 
-      logger.error e
-
       error!({ error: message, status: status }, status)
     end
   end

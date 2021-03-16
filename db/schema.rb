@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_030643) do
     t.integer "user_id", null: false
     t.datetime "start_at", null: false
     t.datetime "end_at"
+    t.integer "length_of_sleep"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_time_trackings_on_user_id"

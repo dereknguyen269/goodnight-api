@@ -2,12 +2,13 @@
 #
 # Table name: time_trackings
 #
-#  id         :integer          not null, primary key
-#  end_at     :datetime
-#  start_at   :datetime         not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer          not null
+#  id              :integer          not null, primary key
+#  end_at          :datetime
+#  length_of_sleep :integer
+#  start_at        :datetime         not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  user_id         :integer          not null
 #
 # Indexes
 #

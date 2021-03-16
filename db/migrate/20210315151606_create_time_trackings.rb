@@ -4,6 +4,7 @@ class CreateTimeTrackings < ActiveRecord::Migration[6.1]
       t.references :user, null: false, foreign_key: true
       t.datetime :start_at, null: false
       t.datetime :end_at
+      t.integer :length_of_sleep
 
       t.timestamps
     end

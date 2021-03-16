@@ -2,12 +2,13 @@
 #
 # Table name: time_trackings
 #
-#  id         :integer          not null, primary key
-#  end_at     :datetime
-#  start_at   :datetime         not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer          not null
+#  id              :integer          not null, primary key
+#  end_at          :datetime
+#  length_of_sleep :integer
+#  start_at        :datetime         not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  user_id         :integer          not null
 #
 # Indexes
 #
@@ -20,6 +21,12 @@
 class TimeTracking < ApplicationRecord
   belongs_to :user
 
-  scope :sleeping, -> { where(end_at: nil).where.not(start_at: nil) }
   default_scope { order(created_at: :desc) }
+  scope :sleeping, -> { where(end_at: nil).where.not(start_at: nil) }
+  scope :completed, -> { where.not(length_of_sleep: nil) }
+  scope :order_by_length_of_sleep, -> { order(length_of_sleep: :asc) }
+  scope :pastweek, -> {
+    begin_of_week = Time.zone.now.beginning_of_week
+    where('created_at < ?', begin_of_week)
+  }
 end

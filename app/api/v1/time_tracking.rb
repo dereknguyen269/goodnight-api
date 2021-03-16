@@ -15,7 +15,8 @@ class V1::TimeTracking < Grape::API
       time_tracking = current_user.time_trackings.sleeping.first
       record_at = Time.zone.now
       if time_tracking
-        time_tracking.update end_at: record_at
+        length_of_sleep = record_at - time_tracking.start_at
+        time_tracking.update end_at: record_at, length_of_sleep: length_of_sleep
       else
         time_tracking = current_user.time_trackings.create!(start_at: record_at)
       end

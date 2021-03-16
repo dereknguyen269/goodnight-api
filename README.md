@@ -56,3 +56,7 @@ Unfollow Other user:
 with `user_id` is user id need unfollow.
 
 ### 3. See the sleep records over the past week for their friends, ordered by the length of their sleep.
+
+```
+  GET /api/v1/time_trackings/me/friend_records
+```

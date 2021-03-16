@@ -33,6 +33,12 @@ class V1::TimeTracking < Grape::API
         present current_user.time_trackings, with: Entities::V1::TimeTracking
       end
 
+      desc 'My Clocked-in Sleep Records', entity: Entities::V1::TimeTracking
+      get :my_clocked_in_records do
+        user_authenticate!
+        present current_user.time_trackings.sleeping, with: Entities::V1::TimeTracking
+      end
+
       desc 'Friends\'s Sleep Records', entity: Entities::V1::TimeTracking
       get :friend_records do
         user_authenticate!

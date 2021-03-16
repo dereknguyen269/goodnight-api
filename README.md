@@ -70,7 +70,7 @@ with `user_id` is user id need follow.
 Unfollow Other user:
 
 ```
-  POST /api/v1/friends/nfollow/:user_id
+  POST /api/v1/friends/unfollow/:user_id
 ```
 
 with `user_id` is user id need unfollow.

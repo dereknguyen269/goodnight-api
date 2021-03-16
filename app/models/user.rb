@@ -21,6 +21,8 @@
 #
 class User < ApplicationRecord
   include Authentication
+
+  acts_as_follower
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -30,6 +32,11 @@ class User < ApplicationRecord
 
 
   before_save :ensure_authentication_token
+
+  def friend_records
+    friend_ids = all_following.pluck(:id)
+    TimeTracking.where(user_id: friend_ids)
+  end
 
   protected
 

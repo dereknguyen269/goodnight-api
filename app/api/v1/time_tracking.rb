@@ -26,10 +26,16 @@ class V1::TimeTracking < Grape::API
     end
 
     resource :me do
-      desc 'My Time Tracking', entity: Entities::V1::TimeTracking
+      desc 'My Sleep Records', entity: Entities::V1::TimeTracking
       get :my_records do
         user_authenticate!
         present current_user.time_trackings, with: Entities::V1::TimeTracking
+      end
+
+      desc 'Friends\'s Sleep Records', entity: Entities::V1::TimeTracking
+      get :friend_records do
+        user_authenticate!
+        present current_user.friend_records, with: Entities::V1::TimeTracking
       end
     end
   end

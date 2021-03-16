@@ -21,7 +21,7 @@
 class TimeTracking < ApplicationRecord
   belongs_to :user
 
-  default_scope { order(created_at: :desc) }
+  default_scope { order(created_at: :asc) }
   scope :sleeping, -> { where(end_at: nil).where.not(start_at: nil) }
   scope :completed, -> { where.not(length_of_sleep: nil) }
   scope :order_by_length_of_sleep, -> { order(length_of_sleep: :asc) }

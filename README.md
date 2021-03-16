@@ -36,3 +36,7 @@ Run `rails c`, and find `authentication_token`. Exam:
 ```
   /api/v1/time_trackings/me/my_records
 ```
+
+### 2. Users can follow and unfollow other users.
+
+### 3. See the sleep records over the past week for their friends, ordered by the length of their sleep.

@@ -20,6 +20,7 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+  include Authentication
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -40,14 +41,6 @@ class User < ApplicationRecord
     loop do
       token = Devise.friendly_token
       break token unless self.class.exists? authentication_token: token
-    end
-  end
-
-  module ClassMethods
-    def authorize(params)
-      return find_by authentication_token: params[:access_token] if params[:access_token]
-
-      find_for_database_authentication(params.slice(*authentication_keys))
     end
   end
 end

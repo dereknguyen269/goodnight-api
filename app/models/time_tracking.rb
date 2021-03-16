@@ -19,4 +19,6 @@
 #
 class TimeTracking < ApplicationRecord
   belongs_to :user
+
+  scope :sleeping, -> { where(end_at: nil).where.not(start_at: nil) }
 end

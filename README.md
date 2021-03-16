@@ -34,6 +34,18 @@ Run `rails c`, and find `authentication_token`. Exam:
 
 ### 1. Clock In operation, and return all clocked-in times, ordered by created time.
 
+Clock-in sleep record.
+
+```
+  POST /api/v1/time_trackings
+```
+
+Clock-out sleep record.
+
+```
+  POST /api/v1/time_trackings
+```
+
 My all sleep records
 ```
   GET /api/v1/time_trackings/me/my_records

@@ -34,17 +34,18 @@ Run `rails c`, and find `authentication_token`. Exam:
 
 ### 1. Clock In operation, and return all clocked-in times, ordered by created time.
 
-Clock-in sleep record.
+Clock-in / Clock-out sleep record.
 
 ```
   POST /api/v1/time_trackings
 ```
+Params:
+  - id : Record Id (optional)
 
-Clock-out sleep record.
+When request have `id`, Find clocked-in record of user with `id`. Opposite, get first clocked-in record of user. We have 2 cases:
 
-```
-  POST /api/v1/time_trackings
-```
+  - If have record, Clocked-out for current sleep record.
+  - Opposite, Clocked-in with new sleep record.
 
 My all sleep records
 ```

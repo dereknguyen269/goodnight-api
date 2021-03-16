@@ -34,7 +34,7 @@ Run `rails c`, and find `authentication_token`. Exam:
 
 ### 1. Clock In operation, and return all clocked-in times, ordered by created time.
 ```
-  GET /api/v1/time_trackings/me/my_records
+  GET /api/v1/time_trackings/me/my_clocked_in_records
 ```
 
 ### 2. Users can follow and unfollow other users.

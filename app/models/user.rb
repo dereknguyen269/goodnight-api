@@ -26,4 +26,28 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :time_trackings
+
+
+  before_save :ensure_authentication_token
+
+  protected
+
+  def ensure_authentication_token
+    self.authentication_token ||= generate_authentication_token
+  end
+
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless self.class.exists? authentication_token: token
+    end
+  end
+
+  module ClassMethods
+    def authorize(params)
+      return find_by authentication_token: params[:access_token] if params[:access_token]
+
+      find_for_database_authentication(params.slice(*authentication_keys))
+    end
+  end
 end

@@ -21,6 +21,18 @@ I really enjoyed using Grape. Its simplicity made it really easy to understand a
   rails db:migrate
   rails db:seed
 ```
-Then `rails c` to start server
+Then `rails s` to start server
 
 ## API
+
+Note some API need `Authorization` access token in Header.
+
+Run `rails c`, and find `authentication_token`. Exam:
+```
+  User.first.authentication_token
+```
+
+### 1. Clock In operation, and return all clocked-in times, ordered by created time.
+```
+  /api/v1/time_trackings/me/my_records
+```

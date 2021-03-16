@@ -21,3 +21,4 @@ I really enjoyed using Grape. Its simplicity made it really easy to understand a
   rails db:migrate
   rails db:seed
 ```
+Then `rails c` to start server

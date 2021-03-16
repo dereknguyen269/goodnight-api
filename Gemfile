@@ -42,3 +42,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 gem 'annotate', '~> 3.0', '>= 3.0.3'
+
+# grape api
+gem 'grape', '~> 1.5.1'
+gem 'grape-entity', '~> 0.8.2'
+gem 'grape-swagger', '~> 1.3', '>= 1.3.1'
+gem 'grape-swagger-rails', '~> 0.3.1'
+gem 'grape-swagger-entity', '~> 0.5.1'
+gem 'grape_logging', '~> 1.8', '>= 1.8.4'

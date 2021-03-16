@@ -34,9 +34,25 @@ Run `rails c`, and find `authentication_token`. Exam:
 
 ### 1. Clock In operation, and return all clocked-in times, ordered by created time.
 ```
-  /api/v1/time_trackings/me/my_records
+  GET /api/v1/time_trackings/me/my_records
 ```
 
 ### 2. Users can follow and unfollow other users.
+
+Follow Other user:
+
+```
+  POST /api/v1/friends/follow/:user_id
+```
+
+with `user_id` is user id need follow.
+
+Unfollow Other user:
+
+```
+  POST /api/v1/friends/nfollow//:user_id
+```
+
+with `user_id` is user id need unfollow.
 
 ### 3. See the sleep records over the past week for their friends, ordered by the length of their sleep.

@@ -22,3 +22,5 @@ I really enjoyed using Grape. Its simplicity made it really easy to understand a
   rails db:seed
 ```
 Then `rails c` to start server
+
+## API

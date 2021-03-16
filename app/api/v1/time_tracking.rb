@@ -50,7 +50,7 @@ class V1::TimeTracking < Grape::API
       desc 'Friends\'s Sleep Records', entity: Entities::V1::TimeTracking
       get :friend_records do
         user_authenticate!
-        present current_user.friend_records, with: Entities::V1::TimeTracking
+        present current_user.friend_records
       end
     end
   end

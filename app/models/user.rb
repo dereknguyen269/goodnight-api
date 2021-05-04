@@ -35,7 +35,7 @@ class User < ApplicationRecord
 
   def friend_records
     friend_ids = all_following.pluck(:id)
-    records = TimeTracking.where(user_id: friend_ids).completed.order_by_length_of_sleep
+    records = TimeTracking.where(user_id: friend_ids).pastweek.completed.order_by_length_of_sleep
     records.group_by { |u| u.user_id }
   end
 
